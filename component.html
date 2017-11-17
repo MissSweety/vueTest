@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+  <head>
+    <title>component.js</title>
+    <style>#app { height: 600px; color: blue; }</style>
+    <script src="./vue.js"></script>
+    <script src="./js/todoitem.js"></script>
+  </head>
+  <body>
+    <div id="app" v-bind:style='style'>
+      <todo-item
+        v-for="item in list"
+        v-bind:todo="item"
+        v-bind:key="item.id"
+      >
+      </todo-item>
+    </div>
+  </body>
+  <script>
+  
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'my name is zcx',
+        style: 'width: 200px;background: pink',
+        showp: false,
+        noshowp: true,
+        list: [
+          { name: 'list-item-1', id: 1, style: "color: green"},
+          { name: 'list-item-2', id: 2, style: "background: orange"},
+          { name: 'list-item-3', id: 3, style: "font-weight: bold"}
+        ]
+      },
+      methods: {
+        testclick: function(value) {
+          window.alert(value)
+        }
+      }
+    })
+  </script>
+</html>

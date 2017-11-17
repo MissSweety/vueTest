@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+  <head>
+    <title>light-test.js</title>
+    <style>#app { height: 600px; }</style>
+    <script src="./vue.js"></script>
+  </head>
+  <body>
+    <div id="app" v-bind:style='style'>
+      {{ message }}
+      <p v-if="showp">woshishowp</p>
+      <p v-if="noshowp">noshowp</p>
+      <ul>
+        <li v-for="sth in list" v-on:click="testclick(sth.name)">{{ sth.name }}</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'my name is zcx',
+        style: 'width: 200px;background: pink',
+        showp: false,
+        noshowp: true,
+        list: [
+          { name: 'list-item-1'},
+          { name: 'list-item-2'},
+          { name: 'list-item-3'}
+        ]
+      },
+      methods: {
+        testclick: function(value) {
+          window.alert(value)
+        }
+      }
+    })
+  </script>
+</html>

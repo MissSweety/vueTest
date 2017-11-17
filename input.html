@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+  <head>
+    <title>vue-input.js</title>
+    <style>
+      #app div {
+        margin: 20px;
+      }
+      #app .explain {
+        margin-left: 20px;
+        font-weight: bold;
+      }
+    </style>
+    <script src="./vue.js"></script>
+  </head>
+  <body>
+    <div id="app" v-bind:style='style'>
+      <div>
+        <h3>文本框</h3>
+        <input v-model="inputmsg" type="text"/>
+        <span class="explain">input text: {{inputmsg}}</span>
+      </div>
+      <div>
+        <h3>多行文本框</h3>
+        <textarea v-model="textarea" placeholder="woshi textarea"></textarea>
+        <span class="explain">textarea content: {{ textarea }}</span>
+      </div>
+      <div>
+        <h3>单选</h3>
+        <label><input type="radio" name="picked" value="one" v-model="pick">one</label>
+        <label><input type="radio" name="picked" value="two" v-model="pick">two</label>
+        <span class="explain">radio select: {{ pick }}</span>
+      </div>
+      <div>
+        <h3>checkbox</h3>
+        <label><input type="checkbox"  v-bind:value="a"
+>{{ checked }}</input></label>
+        <h3>多选checkbox</h3>
+        <label><input type="checkbox" v-model="multibox" value="jack">jack</input></label>
+        <label><input type="checkbox" v-model="multibox" value="jquery">jquery</input></label>
+        <label><input type="checkbox" v-model="multibox" value="jimmy">jimmy</input></label>
+        <span class="explain">checkbox select: {{ multibox }}</span>
+      </div>
+      <div>
+        <h3>下拉选择-单选</h3>
+        <select v-model="selection">
+          <option disabled value="">请选择</option>
+          <option>大野智</option>
+          <option>sho</option>
+          <option>aiba</option>
+          <option>nino</option>
+          <option>jun</option>
+        </select>
+        <span class="explain">select option: {{ selection }}</span>
+      </div>
+      <div>
+        <h3>多选列表</h3>
+        <select v-model="multSelect" multiple>
+          <option disabled value="">请选择</option>
+          <option v-for="option in options" v-bind:value="option.value">{{option.name}}</option>
+        </select>
+        <span class="explain">select option: {{ multSelect }}</span>
+      </div>
+    </div>multi
+  </body>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        inputmsg: 'input text',
+        style: 'width: 400px;background: #fed143',
+        pick: "one",
+        checked: true,
+        a:'',
+        b:'',
+        textarea: '',
+        multibox: [],
+        selection: '',
+        multSelect: [],
+        options: [{ name: '大野智', value:'ohno'},
+          { name: '樱井翔', value:'sho'},
+          { name: '相叶', value:'aiba'},
+          { name: '二宫', value:'nino'},
+          { name: '松本', value:'jun'}],
+      },
+    });
+    console.log()
+  </script>
+</html>
